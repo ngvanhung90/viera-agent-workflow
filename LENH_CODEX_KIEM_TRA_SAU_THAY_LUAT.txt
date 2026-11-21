@@ -1,0 +1,67 @@
+KẾT QUẢ CẦN ĐẠT
+
+Mẫu hậu kiểm cho task đã được Owner giao. Chọn phần kiểm theo phạm vi chuẩn bị hoặc chuyển nguồn thật được ghi trong task. Tài liệu đi kèm chỉ mô tả cách kiểm.
+
+NGUYÊN TẮC PHẢI TUÂN THỦ
+
+Tìm task hậu kiểm/migration đang có trước khi tạo mới. Ghi danh tính, phạm vi, checkpoint và kết quả trong nhật ký/task hiện hữu có quyền; không dựng thêm cây, registry hoặc báo cáo cạnh tranh. Chốt giới hạn kiểm trong ngân sách đã giao; không đặt lại chi phí khi đổi phiên.
+
+Giữ quyền của người đang thực hiện dự án. Gửi findings cho đầu mối có quyền nhập vào cây/sổ. Hậu kiểm vận hành theo đúng scope, giai đoạn, quyền dữ liệu và cổng sản phẩm đang áp dụng.
+
+Mỗi ca ghi loại kiểm: TĨNH, FIXTURE hoặc CLIENT THẬT; nguồn/revision, thao tác, kỳ vọng, kết quả quan sát, nơi giữ bằng chứng và giới hạn. Fixture phải nằm trong vùng thử được phép, không chứa dữ liệu bảo vệ hoặc chèn lịch sử giả vào cây thật. Kiểm trên mẫu không chứng minh toàn dự án. Không nhận checklist, checksum, lời tự báo hay exit 0 là chứng cứ hành vi.
+
+MƯỜI HAI CA HẬU KIỂM
+
+HK01 — Đúng dự án và danh tính.
+Kỳ vọng: project_id/root/worktree và cây chuẩn khớp; không nhận memory theo ngày làm nguồn chuẩn. Nhật ký có công cụ, vai, task, session/thread/agent ID, tên phiên, tên và native ID cửa sổ tách riêng với nguồn quan sát. Model/effort tách yêu cầu–cấu hình–quan sát. Trường host không cung cấp ghi NOT_EXPOSED. Bằng chứng: binding, nguồn danh tính và bản ghi nhận việc; Dùng danh tính host cung cấp.
+Thử ZIP chỉ để review và project/root/worktree sai hoặc alias ngoài binding. Kiểm tập thay đổi trống ngoài vùng soạn. Hash đúng thiếu căn cứ Owner vẫn không mở quyền ghi. Ghi từng identity theo nguồn, cả model/effort yêu cầu, cấu hình, quan sát ở từng client/phiên. Thử tên UI đổi, ID không expose, và worker chỉ đọc gửi delta. Thử giữ B khi chưa có quyết định mới, Owner chọn B mới, override/phiên lưu còn giữ B cũ, và client thiếu mức được giao. Giữ checkpoint/quyền/accounting. Thử Owner đặt mức chuyên sâu cho cửa sổ A với model B. Agent con nhận việc đơn giản dùng mức nhẹ/vừa, việc phức tạp dùng mức cao/chuyên sâu khi được hỗ trợ. Mức cửa sổ A không đổi. Chỉ thử model khác khi Owner cho phép; thiếu tùy chọn hoặc sai B chỉ giữ tác động phụ thuộc. Đối chiếu chứng cứ cấu hình và quan sát của từng phiên riêng.
+
+HK02 — Luật được nạp thật.
+Kỳ vọng: một nguồn luật chung; global/parent/nested/import/override/fallback không còn luật cũ cạnh tranh. Kiểm cấu hình và đường nạp trên từng client thực có, tại root và thư mục con liên quan. Bằng chứng: phiên bản client, cấu hình, nguồn đã nạp và giới hạn quan sát. File tồn tại chưa chứng minh đã nạp; client không chạy được ghi CHƯA KIỂM.
+Đối chiếu byte ngoài delta và các binding hợp đồng còn áp dụng. Kiểm exact byte đích cùng chuỗi hướng dẫn thực nạp ở root/nested của từng client, gồm nội dung đến cuối và các trigger R18. Thử sai pin, thiếu đường đọc hoặc nạp thiếu dù exit 0. Giữ tác động phụ thuộc nếu thiếu. Phân biệt CLI trên thư mục thử với chứng cứ Desktop, Claude và root thật. Trên đường đã chọn, mở đúng nguồn workflow đã ghi trong binding và kiểm trigger R18. Phiên mới khi cutover dở phải giữ tác động phụ thuộc. Ghi riêng quyền và enforcement của lifecycle thật. Kiểm đường workflow trực tiếp và điểm gọi skill native nếu áp dụng, gồm đúng trigger, không trigger khi không liên quan, thiếu nguồn, lỗi/timeout hoặc bypass của gate bắt buộc. Khi chuyển định tuyến, thử phát hiện điều khoản ghim còn được nạp ở HOST/luật riêng hoặc cấu hình theo dự án. Sau chuyển đã được phép, chứng minh cùng một quy tắc R09 tại mỗi đường nạp chịu ảnh hưởng.
+
+HK03 — Nội dung bắt buộc của cây.
+Kỳ vọng: cây có định danh/mục tiêu/giai đoạn/revision; cấu trúc chức năng–owner–caller–phụ thuộc; đã đạt và chứng cứ; việc dở/người giữ/checkpoint; phần thiếu; blocker/cách gỡ; lỗi/nghi vấn; candidate/tài sản cần dọn; quyết định/quyền hiệu lực; độ phủ và phần chưa biết; bước tiếp, tiêu chí và quyền. Bằng chứng: ánh xạ từng nhóm tới mục hiện có. Có đủ đề mục chưa chứng minh phản ánh đủ thực tế.
+Thử tiến độ, lỗi hoặc blocker xuất hiện giữa phiên. Writer ghi ngay mốc R15 vào cây và task hoặc ghi rõ đang chờ nhập kèm đầu mối. Đồng bộ phần đã làm, việc dở, revision và bước tiếp trong nguồn hiện có.
+
+HK04 — Trạng thái có căn cứ.
+Kỳ vọng: phân biệt đã xây, đã kiểm, đã tích hợp, đang dùng thật và candidate chưa nối; lỗi xác nhận khác nghi vấn. Đối chiếu vài nút đại diện có thành tựu, lỗi và blocker với nguồn gốc còn áp dụng. Giữ receipt cũ khi target bị revert; kiểm hiện trạng riêng. Thử lệch input/target, zero/skip để tránh PASS giả. Bằng chứng: tiêu chí–target–đầu vào–môi trường–kết quả hoặc phần thiếu. Không xóa thành tựu cũ chỉ vì chưa chạy lại; không suy toàn kho từ mẫu.
+
+HK05 — Phiên mới đọc toàn cây.
+Kỳ vọng: phiên điều phối mới hoặc đổi Codex/Claude đọc toàn bộ cây hiện hành cùng luật, xác định đúng đã/đang/sẽ làm và điểm bị chặn. Bằng chứng: revision và dấu đọc đủ đoạn, kể cả phần output bị cắt; hash/grep/tóm tắt không thay đọc trọn. Thử trên client thật trong phạm vi an toàn; không mở được phiên thì ghi CHƯA KIỂM.
+Tách kiểm nạp bộ luật khỏi chứng cứ phiên điều phối thực đọc đủ cây và gọi workflow đúng trigger. Với binding chỉ dẫn đọc nguồn, che giấu hoặc thiếu nguồn chính phải giữ bước phụ thuộc.
+
+HK06 — Cây đổi hoặc mất ngữ cảnh.
+Kỳ vọng: trước task kế tiếp trong cùng phiên, đối chiếu revision và phần liên quan; cây đổi thì đọc delta cùng phụ thuộc. Sau mất ngữ cảnh, không phục hồi được dấu đọc thì đọc lại toàn cây. Bằng chứng: phản ứng trước hai revision khác nhau trong fixture hoặc lần chuyển thực; ghi đúng loại kiểm, không giả đã thử compaction nếu chưa xảy ra.
+
+HK07 — Phát hiện lệnh lặp/sai tiền đề.
+Kỳ vọng: với ca an toàn yêu cầu xây phần đã có hoặc đang có owner, agent chỉ ra implementation/caller/candidate/chứng cứ/người giữ, không tạo module hoặc writer trùng. Đủ dữ kiện thì tiếp phần hợp lệ, không hỏi lại thông tin trong hồ sơ. Bằng chứng: nguồn được đối chiếu và diff/hành động quan sát. Không coi giao dịch mới có chủ ý là lặp.
+Khi sửa lỗi qua phiên/client khác, đối chiếu lượt thử và accounting đã dùng. Chỉ nối lượt mới khi có căn cứ hoặc phép kiểm phân biệt. Thử lỗi thuộc harness/process/cache, batch khi chưa đo credits, và giữ trần chung khi đổi phiên. Nếu hết hướng, lưu blocker và tiếp phần độc lập, không reset work-unit.
+
+HK08 — Cây chưa có, chưa đủ hoặc bị chặn.
+Kỳ vọng: khi chưa có cây và được quyền tạo, dựng baseline tối thiểu từ nguồn thật; khi đang hoàn thiện, giữ phần thiếu rõ ràng. CHƯA KHẢO SÁT không thành CHƯA XÂY; bị cắt/che logic không thành ĐỌC TRỌN. Bằng chứng: ca fixture thiếu nguồn/quyền và phản ứng. Chỉ giữ tác động phụ thuộc; tiếp phần độc lập, không vượt quyền hoặc đóng băng mọi việc.
+
+HK09 — Một đầu mối cập nhật cây.
+Kỳ vọng: đối chiếu người giữ, vùng ghi, lifecycle và liveness thật trước nhập kết quả. Reviewer gửi phát hiện cho writer có quyền; không sửa sổ worker hoặc tạo một cây cạnh tranh. Bằng chứng: quyền ghi, revision trước nhập và cách xử lý thay đổi đồng thời. Fixture mô phỏng xung đột không chứng minh claim/process thật đã dừng.
+Cho hai writer fixture cùng tranh một vùng, chỉ một bên được quyền. Sau chuyển epoch/revision, cho writer cũ quay lại với đúng token cũ và thử viết cả khi dự đoán đúng revision mới. Cả hai phải bị từ chối. Ghi byte thắng và byte sau từ chối, kiểm khóa hoặc CAS tại commit.
+
+HK10 — Bàn giao đúng việc.
+Kỳ vọng: giữ lineage, task, quyết định, tiêu chí, byte dở, budget và job; phiên nhận có danh tính mới, ownership chuyển qua lifecycle thật. Bằng chứng: checkpoint phục hồi được, receipt/release và người giữ hiện hành. Không copy claim, giả COMPLETED, replay tác động hoặc tự xóa lock. Thử hai chiều giữa client khi có khả năng/quyền. Mất cửa sổ/agent: tự tìm checkpoint từ task và registry/lifecycle, giữ claim khi chưa đủ chứng cứ/quyền, tiếp đúng việc sau chuyển hợp lệ. Thiếu chiều nào ghi riêng. Thử bàn giao ngay khi worker xong phần của mình: phiên nhận đọc tên/ID do host cung cấp, kết quả, checkpoint và bước tiếp từ cây/task mà không mở transcript. Thử worker thiếu quyền ghi cây, bản ghi HOST trung lập có ref đọc được, và trường ID không expose. Phần chưa nhập ghi PENDING và đầu mối, không chờ Owner tìm lịch sử.
+Ngắt process fixture sau checkpoint, giữa các bước đổi binding và sau ghi receipt trước nhả claim. Sau mỗi ngắt mở lại byte, so trạng thái từng bước, giữ lineage/budget và tiếp đúng bước. Nếu receipt đã ghi, không replay tác động. Nhánh người nhận thiếu quyền phải giữ claim nguyên. Ngắt ALPHA sau receipt trước unlink: bản ghi chỉ có thể là RELEASE_PENDING, phiên khác không nhả thay. Tiếp đúng bước từ receipt đã có; xác minh claim đã mất và byte receipt/hiệu ứng được giữ. Khôi phục và rollback xác nhận đủ tệp nhất quán, không lẫn revision. Tái hiện đúng trạng thái chỉ có checkpoint bền. Retry cùng work-unit phải hoàn tất packet/receipt còn thiếu. Checkpoint khác byte phải giữ nguyên claim và dừng.
+
+HK11 — Cây và tệp gửi ChatGPT khớp.
+Kỳ vọng: mỗi dự án có một Gui_ChatGPT_<Ten_du_an>.md theo R19 tại đường dẫn cố định. Packet và cây cùng project, state revision, policy revision và snapshot nguồn. Packet có nội dung quy tắc điều phối cần thiết cho cửa sổ nhận, quyết định/phạm vi/quyền, người giữ và phần chưa xác minh; không chỉ ref/hash luật. Nguồn đổi trong lúc xuất phải được phát hiện; giữ bản tốt trước và báo cũ khi xuất lỗi. Bằng chứng: đối chiếu cặp xuất và ca fixture lệch revision. File ở máy cập nhật không có nghĩa bản đã gửi ChatGPT tự cập nhật.
+Thử packet/cây cùng revision nhưng một sổ nguồn đổi, path/hash của policy lệch hoặc quyền xuất thiếu. Chặn publish và giữ nguyên cặp tốt trước. Chỉ công bố cặp mới khi toàn bộ manifest snapshot được đọc lại nhất quán ở điểm chốt. Thử cây revision mới hơn và packet revision cũ mang hash mới. Từ chối từ cả phía tạo và nhận, kể cả khi nội bộ manifest nhìn có vẻ nhất quán.
+Ngắt ALPHA sau ghi cây trước ghi packet: checkpoint phải còn PENDING, người nhận từ chối cặp lệch và chỉ writer đúng quyền tiếp đúng postimage. Kiểm thêm tại cửa sổ không có ký ức dự án hay đường cục bộ: từ packet và dữ liệu kèm được phép, người nhận xác định được việc đã/đang/sẽ làm, quy tắc điều phối, phạm vi, người giữ, blocker và phần chưa biết. Thiếu nội dung luật cần cho quyết định thì nêu đúng phần thiếu để agent tại máy đối chiếu, không đoán. So đường native và workflow trực tiếp cho cùng hợp đồng đầu ra; không yêu cầu gọi native client khi ngoài phạm vi hoặc chưa khả dụng.
+
+HK12 — Khép hậu kiểm đúng phạm vi.
+Kỳ vọng: kết luận dựa chứng cứ; dọn fixture/tài sản tạm thuộc mình sau kiểm consumer và quyền, giữ chứng cứ phải lưu; bàn giao và nhả phần việc của mình ngay bằng lifecycle thật. Bằng chứng: báo cáo, trạng thái sau nhả, job còn sống/người nhận, bước tiếp. Giữ tài sản và chứng cứ thuộc vùng việc khác.
+Phân biệt đã ghi receipt, chưa nhả, đã nhả và job còn sống. Thử cập nhật giữa việc không gọi cleanup/finish, chốt một lần sau khi bảo toàn phần cần phục hồi và dọn có điều kiện. Giữ untracked/runtime pointer/job thuộc scope; dừng đúng chủ, kiểm phục hồi. Thử việc cơ học không bắt reviewer ngoài R08 và ca có cổng vẫn cần reviewer độc lập. Thử người nhận chưa mở phiên và delta cây/packet chưa nhập. Nhả ngay phần đã khép nếu điều kiện lifecycle đủ, lưu PENDING có đầu mối, rồi chỉ người có quyền xác minh release thật và nhập delta vào cùng đường dẫn. Ở staging, kết luận mức đã soạn và loại bằng chứng. Ghi rõ tác động nào chưa chạy trên client thật hoặc bị chặn và nguyên nhân. Không dùng fixture để công nhận quyền/release thực.
+
+SỬA SAI LỆCH VÀ TRẢ KẾT QUẢ
+
+Sửa đúng vùng và loại tác động đã được Owner giao trong task. Ở lượt soạn, chỉ sửa bản soạn và fixture cô lập. Kiểm chéo current diff khác tác giả. Cổng, oracle, quyền và sản phẩm giữ nguyên. Bằng chứng đủ ở revision/phạm vi cũ được đối chiếu, chỉ thử lại phần chịu ảnh hưởng.
+
+Ghi mỗi ca: ĐẠT, KHÔNG ĐẠT, CHƯA CHẠY, BỊ CHẶN, MỘT PHẦN hoặc KHÔNG ÁP DỤNG có lý do. Ghi `NOT_RUN` khi chưa chạy, hoặc `HOLD` kèm lý do khi scope được giao bị chặn. Ghi rõ bằng chứng kế thừa thuộc byte/revision và đường chạy nào. Báo riêng bốn mức: ĐÃ SOẠN, ĐÃ CÀI, ĐÃ NẠP, HÀNH VI ĐÃ KIỂM, theo từng client; không gộp thành PASS toàn dự án.
+
+Trả ngắn: luật thực có hiệu lực; cây chuẩn và phần thiếu; ca đã chạy/bằng chứng/giới hạn; sai lệch đã sửa/còn vướng; nơi ghi danh tính; cây và packet cùng mốc; bàn giao/nhả quyền/jobs; bước tiếp. Khi đạt phần việc, cập nhật qua đầu mối có quyền rồi tiếp nhiệm vụ đã giao còn hợp lệ, giữ phạm vi người đang làm và dùng lại quyết định còn hiệu lực.

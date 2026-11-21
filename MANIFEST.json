@@ -1,0 +1,129 @@
+{
+  "format": "codex-claude-rule-bundle/v1",
+  "version": "3.0.2",
+  "edition": "DC-PKT-02",
+  "release_date": "2026-11-22",
+  "policy_source": "AGENTS.md",
+  "workflow_source": "QUY_TRINH_SKILL_VA_AGENT.md",
+  "previous_edition": "DC-PKT-01",
+  "manifest_self_hash": "EXCLUDED",
+  "files": [
+    {
+      "path": ".agents/skills/cap-nhat-va-ban-giao/SKILL.md",
+      "bytes": 842,
+      "sha256": "0199e105ed07ab7b018e105582bf22a8e6e353b46ec26a3184ce3278226cc0a8"
+    },
+    {
+      "path": ".agents/skills/ket-thuc-nhanh-va-don/SKILL.md",
+      "bytes": 834,
+      "sha256": "a4bc1825c243e9527d7d95e5dd9ba1e3390eb2a507a68b4a26a46eacc61f96f8"
+    },
+    {
+      "path": ".agents/skills/kiem-chung-va-loi-ngam/SKILL.md",
+      "bytes": 852,
+      "sha256": "f601a01f4dc87fb41fcf16d88421e0716549fe4d77849a9cdd46d45b64e5c3b8"
+    },
+    {
+      "path": ".agents/skills/thuc-hien-thay-doi/SKILL.md",
+      "bytes": 859,
+      "sha256": "2373c1410cdcf140f002f67a2230e0898659d34904d047bb3e2f91da28f83d32"
+    },
+    {
+      "path": ".agents/skills/tiep-quan-du-an/SKILL.md",
+      "bytes": 851,
+      "sha256": "a06ad6595f6272e769c064b799946a8f1098c97eda766bb833eaedea8d21144f"
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 20301,
+      "sha256": "920506ad9ea721d60ff7cf12bb3bc97bb03dd7757000ef02da38db64a58fc820"
+    },
+    {
+      "path": "BAT_DAU.md",
+      "bytes": 4864,
+      "sha256": "0661c08a0e614fb4a1b6f441243595ff8932b169684095c1579b460a6a1cbd70"
+    },
+    {
+      "path": "CHUYEN_DOI_LUAT_VA_TIEP_TUC.md",
+      "bytes": 20713,
+      "sha256": "08e26c9fcd6ed4eff2d7f8798d6acac8fda1329183a30f7757e563d9240713b2"
+    },
+    {
+      "path": "CLAUDE.md",
+      "bytes": 125,
+      "sha256": "8e4250d0146efb4c9db094fc879a768258a51842f06d67889a283f475a310a13"
+    },
+    {
+      "path": "COMPATIBILITY.md",
+      "bytes": 2702,
+      "sha256": "d2ba7b4f0a0e81b474a08f62cf1749f47091f3ffccbbfe7a336886f3c83c2a64"
+    },
+    {
+      "path": "Gui_ChatGPT_MAU_DU_AN.md",
+      "bytes": 7955,
+      "sha256": "76496781d359aafd86cb581bcd1069618f3eaa9aca32fd99941754b4729f8c68"
+    },
+    {
+      "path": "LENH_AP_DUNG.txt",
+      "bytes": 1816,
+      "sha256": "fb2d00fb65378f377a939c94b5eca6f0e3cd233f0737877c9ba61bc1b4eaab65"
+    },
+    {
+      "path": "LENH_CODEX_KIEM_TRA_SAU_THAY_LUAT.txt",
+      "bytes": 16003,
+      "sha256": "e7c01e270d8fadc5efb03994eed3c832e63ae9c400f552692228e41c7362d57c"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1068,
+      "sha256": "37762f19a4bee1c25fe9e4c79daa9229ad926f3b19f790650e27d709f019b0ed"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 402,
+      "sha256": "c761a753276e2bd7a20f7516cabec4d13634dff2df2659677ed89e7700298681"
+    },
+    {
+      "path": "QUY_TRINH_SKILL_VA_AGENT.md",
+      "bytes": 34494,
+      "sha256": "cbce8ddcbd0c4370be650a7967098eb7c4a389c6d45f3033cb5958400e087514"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2641,
+      "sha256": "c8507299c13bd21955a8a87f57ce9e667180745eb7df41fac5d42a57d4b82376"
+    },
+    {
+      "path": "examples/Gui_ChatGPT_DEMO.md",
+      "bytes": 381,
+      "sha256": "7e9e325ad41c70f3c6d0235d56fce0a78580510858307667e2077c05bd9cd7f1"
+    },
+    {
+      "path": "examples/PROJECT_MAP.md",
+      "bytes": 420,
+      "sha256": "c03fb251db6b85a69eeafd16e25a7a092196212fa58d3a601a10efc7cf5290c1"
+    },
+    {
+      "path": "examples/README.md",
+      "bytes": 494,
+      "sha256": "732141399f0ce4a68ca886671bf764a2b1e70055fed1bc649e627d5ba02ea95e"
+    },
+    {
+      "path": "examples/TASK.md",
+      "bytes": 284,
+      "sha256": "696998b1a281e4fe255bddf04ce8ac2b65c621ab3eb910a108fcccdbe2d7d5c7"
+    },
+    {
+      "path": "kiem_tra_goi.py",
+      "bytes": 3628,
+      "sha256": "bcc2e4639d24ac1bd5ea1ffd81d2b94d077e55a8599703b3c526f9cb9501a47e"
+    }
+  ],
+  "policy_version": "3.0.2",
+  "release_tag": "v3.0.2"
+}
